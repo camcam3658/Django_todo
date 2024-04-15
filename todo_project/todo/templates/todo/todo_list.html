@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Todo List</title>
+    </head>
+
+    <body>
+        <h1>Todo List</h1>
+        <ul>
+            {% for task in tasks %}
+            <li>
+                {{ task.title }}
+                <a href="{% url 'todo_update' task.pk %}">Update</a>
+                <a href="{% url 'todo_delete' task.pk %}">Delete</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'todo_create' %}">Create new task</a>
+    </body>
+</html>
